@@ -23,11 +23,11 @@ class App extends Component {
     error: null,
   };
 
-  //componentDidUpdate(_prevProps, prevState) {
-  //if (prevState.query !== this.state.query) {
-  //this.setState({ images: [], page: 1, error: null });
-  //}
-  //};
+  componentDidUpdate(_prevProps, prevState) {
+    if (prevState.query !== this.state.query) {
+      this.setState({ images: [], page: 1, error: null });
+    }
+  }
 
   handleChange = event => {
     this.setState({ query: event.target.value });
