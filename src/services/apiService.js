@@ -9,13 +9,18 @@ axios.defaults.params = {
 };
 
 const fetchImages = async (query, page) => {
-  const { data } = await axios.get('', {
-    params: {
-      q: query,
-      page,
-    },
-  });
-  return data.hits;
+  try {
+    const { data } = await axios.get('', {
+      params: {
+        q: query,
+        page,
+      },
+    });
+    return data.hits;
+  } catch (error) {
+    console.log('error', error);
+    return [];
+  }
 };
 
 export default fetchImages;
